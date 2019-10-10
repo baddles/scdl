@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Enable error handling
+set -e
+set -o pipefail
+
 if [ "$EUID" -ne 0 ]
 	then echo "This script needs to be run as root!"
 	exit
@@ -36,9 +40,8 @@ if [ -d /usr/local/bin/scdl ]; then
 	rm -rf /usr/local/bin/scdl
 fi
 
-installerPath="`dirname "${0}"`"
-
-cp $installerPath/scdl /usr/local/bin/scdl
+dir="${0%/*}"
+cp "$dir"/scdl /usr/local/bin/scdl
 chmod a+rx /usr/local/bin/scdl
 
 echo "Installed!"
