@@ -41,7 +41,7 @@ if [ -d /usr/local/bin/scdl ]; then
 fi
 
 dir="${0%/*}"
-cp "$dir"/scdl /usr/local/bin/scdl
+cp "$dir"/scdl /usr/local/bin/
 chmod a+rx /usr/local/bin/scdl
 
 echo "Installed!"
